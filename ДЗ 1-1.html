@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <script>
+
+    (function () {
+
+      let firstValue = prompt("Введите значение");
+      let secondValue = prompt("Введите значение");
+      let valueToConvert = parseInt(firstValue);
+      let systemToConvertValueIn = parseInt(secondValue);
+
+      if (!valueToConvert || !systemToConvertValueIn || systemToConvertValueIn < 2 || systemToConvertValueIn > 36) {
+        console.log("Некорректный ввод!");
+      } else { 
+        let convertedValue = valueToConvert.toString(systemToConvertValueIn)
+        console.log(convertedValue);        
+      }
+    }())
+
+  </script>
+</body>
+
+</html>
