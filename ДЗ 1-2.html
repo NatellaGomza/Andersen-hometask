@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset='UTF-8'>
 </head>
 
 <body>
@@ -10,15 +10,15 @@
 
     (function () {
 
-      let firstOperand = prompt("Введите первое число");
+      let firstOperand = prompt('Введите первое число');
       let secondOperand;
 
       if (!parseInt(firstOperand)) {
-        console.log("Некорректный ввод!");
+        console.log('Некорректный ввод!');
       } else {
-        secondOperand = prompt("Введите второе число");
+        secondOperand = prompt('Введите второе число');
         if (!parseInt(secondOperand)) {
-          console.log("Некорректный ввод!");
+          console.log('Некорректный ввод!');
         } else {
           let answer = `Ответ: ${parseInt(firstOperand) + parseInt(secondOperand)}, ${firstOperand / secondOperand}`;
           console.log(answer);
