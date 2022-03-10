@@ -1,19 +1,19 @@
 function showResultInConsole() {
-    const FIRST_OPERAND = prompt('Введите первое число');
+    const firstOperand = prompt('Введите первое число');
 
-    if (!parseInt(FIRST_OPERAND)) {
+    if (!parseInt(firstOperand)) {
         console.log('Некорректный ввод!');
         return;
     };
 
-    const SECOND_OPERAND = prompt('Введите второе число');
+    const secondOperand = prompt('Введите второе число');
 
-    if (!parseInt(SECOND_OPERAND)) {
+    if (!parseInt(secondOperand)) {
         console.log('Некорректный ввод!');
         return;
     };
 
-    console.log(`Ответ: ${parseInt(FIRST_OPERAND) + parseInt(SECOND_OPERAND)}, ${FIRST_OPERAND / SECOND_OPERAND}`);
+    console.log(`Ответ: ${parseInt(firstOperand) + parseInt(secondOperand)}, ${firstOperand / secondOperand}`);
 }
 
 showResultInConsole()
