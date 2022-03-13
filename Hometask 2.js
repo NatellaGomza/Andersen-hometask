@@ -1,29 +1,22 @@
 function makeObjectDeepCopy(obj) {
-    const cloneObj = {};
+    const cloneObj = Object.assign({}, obj);
 
-    for (const i in obj) {
+    Object.keys(cloneObj).forEach( (key) => {
+        cloneObj[key] = typeof obj[key] === "object" ? makeObjectDeepCopy(obj[key]) : obj[key];   
+    });
 
-        if (obj[i] instanceof Object) {
-            cloneObj[i] = makeObjectDeepCopy(obj[i]);
-            continue;
-        };
-
-        cloneObj[i] = obj[i];
-    }
     return cloneObj;
 }
 
 function selectFromInterval(arr, firstValue, secondValue) {
     const isValidArr = Array.isArray(arr) && arr.every( (item) => typeof item === 'number' );
+    const resultArr = arr.filter( (el) => el <= firstValue && el >= secondValue );
 
     if (!isValidArr) {
         throw new Error('Ошибка!');
     };
-
-    if (isValidArr) {
-        const resultArr = arr.filter( (el) => el <= firstValue && el >= secondValue );
-        return resultArr;
-    };    
+    
+    return resultArr;
 }
 
 const myIterable = {
@@ -34,6 +27,7 @@ const myIterable = {
         const intervalHasTwoValues = myIterable.hasOwnProperty('from') && myIterable.hasOwnProperty('to');
         const intervalValuesAreNumbers = typeof myIterable.from === 'number' && typeof myIterable.to === 'number';
         const intervalIsCorrect = myIterable.from < myIterable.to;
+
         return intervalHasTwoValues && intervalValuesAreNumbers && intervalIsCorrect;
     },
 
@@ -43,9 +37,7 @@ const myIterable = {
             return this;
         };
 
-        if (!this.isValidInterval()) {
             throw new Error('Ошибка!');
-        };
     },
 
     next() {
