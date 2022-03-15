@@ -2,10 +2,11 @@ function myFilter(arr, callback, thisArg) {
     const filteredArr = [];
 
     for (let i = 0; i < arr.length; i++) {
-        if (callback.call(thisArg, arr[i], i, arr)) {
+        const callbackWithCalledThis = callback.call(thisArg, arr[i], i, arr);
+        if (callbackWithCalledThis) {
             filteredArr.push(arr[i]);
-        };
-    };
+        }
+    }
 
     return filteredArr;
 }
@@ -13,7 +14,7 @@ function myFilter(arr, callback, thisArg) {
 function myForEach(arr, callback, thisArg) {
     for (let i = 0; i < arr.length; i++) {
         callback.call(thisArg, arr[i], i, arr);
-    };
+    }
 }
 
 function myReduce(arr, callback, startValue) {
@@ -21,7 +22,7 @@ function myReduce(arr, callback, startValue) {
 
     for (let i = 0; i < arr.length; i++) {
         result = callback.call(null, result, arr[i], i, arr);
-    };
+    }
 
     return result;
 }

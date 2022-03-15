@@ -14,7 +14,7 @@ function selectFromInterval(arr, firstValue, secondValue) {
 
     if (!isValidArr) {
         throw new Error('Ошибка!');
-    };
+    }
     
     return resultArr;
 }
@@ -35,7 +35,7 @@ const myIterable = {
         if (this.isValidInterval()) {
             this.current = this.from;
             return this;
-        };
+        }
 
             throw new Error('Ошибка!');
     },
@@ -50,6 +50,6 @@ const myIterable = {
             return {
                 done: true
             };
-        };
+        }
     }
 };
