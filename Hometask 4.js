@@ -29,7 +29,7 @@ function curry(func) {
     return selfRetFunc;
 }
 
-function concatSpec(strs) {
+function isValidValues(strs) {
 
     let repeats = "";
     let result = "";
@@ -47,7 +47,7 @@ function concatSpec(strs) {
     return result;
 }
 
-let concatStrings = curry(concatSpec);
+let concatStrings = curry(isValidValues);
 
 console.log(''+ concatStrings('first')('second')('third')());
 console.log(''+ concatStrings('first', null)('second')());
