@@ -31,7 +31,7 @@ function curry(func) {
 
 function isValidValues(strs) {
 
-    let repeats = "";
+    let separator = "";
     let result = "";
 
     for (let str of strs) {
@@ -39,9 +39,9 @@ function isValidValues(strs) {
 
         result += str[0];
 
-        if (str[1]) repeats += str[1];
+        if (str[1]) separator += str[1];
 
-        result += repeats;
+        result += separator;
     }
 
     return result;
