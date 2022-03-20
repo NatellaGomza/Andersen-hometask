@@ -14,7 +14,9 @@ function curry(func) {
     }
 
     let getResult = function(isOrdinaryCall = false) {
-        if (isOrdinaryCall) return Function.prototype.toString.call(selfRetFunc);
+        if (isOrdinaryCall) {
+          return selfRetFunc;
+        }
 
         isFlagToReset = true;
 
@@ -28,16 +30,19 @@ function curry(func) {
 }
 
 function isValidValues(strs) {
-
-    let separator = "";
-    let result = "";
+    let separator = '';
+    let result = '';
 
     for (let str of strs) {
-        if (typeof str[0] !== "string") return result;
+        if (typeof str[0] !== 'string') {
+          return result;
+        }
 
         result += str[0];
 
-        if (str[1]) separator += str[1];
+        if (str[1]) {
+          separator += str[1];
+        }
 
         result += separator;
     }
@@ -60,7 +65,7 @@ class Calculator {
       this.arguments = args;
       this.firstValue = args[0];
       this.secondValue = args[1];
-      this.invalidValues = this.checkingArgs();
+      this.checkingArgs();
       this.setX = this.setX.bind(this);
       this.setY = this.setY.bind(this);
       this.logSum = this.logSum.bind(this);
@@ -79,7 +84,9 @@ class Calculator {
         }
       }
   
-      if (this.arguments.length !== 2 || !isValidNumbers) throw new Error('Неверный формат переданных значений');
+      if (this.arguments.length !== 2 || !isValidNumbers) {
+        throw new Error('Неверный формат переданных значений');
+      }
     }
   
     setX(num) {
@@ -111,7 +118,9 @@ class Calculator {
     }
   
     logDiv() {
-      if (this.secondValue === 0) throw new Error('На ноль делить нельзя!');
+      if (this.secondValue === 0) {
+        throw new Error('На ноль делить нельзя!');
+      }
       
       console.log(this.firstValue / this.secondValue);
     }
