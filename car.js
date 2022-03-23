@@ -85,7 +85,7 @@ class Car {
 
   start() {
     if (this.#isStarted) {
-      throw new Error('Машина уже заведена')
+      throw new Error('Машина уже заведена');
     }
 
     this.#isStarted = true;
@@ -93,7 +93,7 @@ class Car {
 
   shutDownEngine() {
     if (!this.#isStarted) {
-      throw new Error('Машина еще не заведена')
+      throw new Error('Машина еще не заведена');
     }
 
     this.#isStarted = false;
