@@ -2,6 +2,7 @@ class Car {
   #brand;
   #model;
   #yearOfManufacturing;
+  #maxFuelVolume;
   #maxSpeed;
   #fuelConsumption;
   #currentFuelVolume = 0;
@@ -9,7 +10,9 @@ class Car {
   #mileage = 0;
 
   set brand(nameOfCarBrand) {
-    if (typeof nameOfCarBrand === 'string' && nameOfCarBrand.length >= 1 && nameOfCarBrand.length <= 50) {
+    const isValidNameOfCarBrand = typeof nameOfCarBrand === 'string' && nameOfCarBrand.length >= 1 && nameOfCarBrand.length <= 50;
+
+    if (isValidNameOfCarBrand) {
       this.#brand = nameOfCarBrand;
     }
   }
@@ -19,7 +22,9 @@ class Car {
   }
 
   set model(nameOfCarModel) {
-    if (typeof nameOfCarModel === 'string' && nameOfCarModel.length >= 1 && nameOfCarModel.length <= 50) {
+    const isValidNameOfCarModel = typeof nameOfCarModel === 'string' && nameOfCarModel.length >= 1 && nameOfCarModel.length <= 50;
+
+    if (isValidNameOfCarModel) {
       this.#model = nameOfCarModel;
     }
   }
@@ -42,7 +47,9 @@ class Car {
   }
 
   set maxSpeed(speed) {
-    if (typeof speed === 'number' && speed >= 100 && speed <= 300) {
+    const isValidSpeed = typeof speed === 'number' && speed >= 100 && speed <= 300;
+
+    if (isValidSpeed) {
       this.#maxSpeed = speed;
     }
   }
@@ -52,7 +59,9 @@ class Car {
   }
 
   set maxFuelVolume(fuelVolume) {
-    if (typeof fuelVolume === 'number' && fuelVolume >= 5 && fuelVolume <= 20) {
+    const isValidFuelVolume = typeof fuelVolume === 'number' && fuelVolume >= 5 && fuelVolume <= 20
+    
+    if (isValidFuelVolume) {
       this.#maxFuelVolume = fuelVolume;
     }
   }
